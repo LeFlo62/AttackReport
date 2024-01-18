@@ -40,6 +40,7 @@ public class FindLoginPageAttack implements Attack {
             return;
         }
         report.append("Login page found at " + loginUrlStr);
+        driver.quit();
     }
 
     private void findLoginUrl(WebDriver driver, String ip, int port){
