@@ -22,7 +22,7 @@ public class BruteForceAttack extends DictionaryAttack {
     private static final List<String> LOGINS = loadFromFile(LOGIN_FILE_PATH);
     private static final String CHARACTER_SET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private static final int MIN_LENGTH = 1;
-    private static final int MAX_LENGTH = 2;
+    private static final int MAX_LENGTH = 1;
 
     @Override
     public List<Class<? extends Attack>> getRequiredPreviousAttacks() {

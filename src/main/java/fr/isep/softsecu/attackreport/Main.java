@@ -18,7 +18,7 @@ public class Main {
 
         new SQLInjectionAttack(), //Require FindLoginPageAttack
         new XSSAttack(),
-        new XEEAttack(),
+        new XXEAttack(),
 
         //Now attacks taking long time
         new PortScanAttack(),

