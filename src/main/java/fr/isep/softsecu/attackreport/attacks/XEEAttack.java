@@ -65,4 +65,3 @@ public class XEEAttack implements Attack {
         return Arrays.asList(FindLoginPageAttack.class);
     }
 }
-
