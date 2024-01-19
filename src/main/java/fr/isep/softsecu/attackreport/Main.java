@@ -23,6 +23,8 @@ public class Main {
         new PortScanAttack(),
         new DictionaryAttack(), //Require FindLoginPageAttack
         new DOSAttack(),
+        new BruteForceAttack(), //Require FindLoginPageAttack
+        new SQLInjectionAttack(), //Require FindLoginPageAttack
     };
 
     public static void main(String[] args) {
