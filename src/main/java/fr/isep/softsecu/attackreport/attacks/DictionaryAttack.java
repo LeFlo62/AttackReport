@@ -18,14 +18,14 @@ import java.util.NoSuchElementException;
 
 public class DictionaryAttack implements Attack {
 
-    private static final int TIMEOUT = 2000;
+    private static final int TIMEOUT = 200;
     private static final String LOGIN_FILE_PATH = "src/main/java/fr/isep/softsecu/attackreport/ressources/login.txt"; // Adjust the file path as needed
     private static final String PASSWORD_FILE_PATH = "src/main/java/fr/isep/softsecu/attackreport/ressources/password/30-most-common.txt"; // Adjust the file path as needed
     private static final List<String> LOGINS = loadFromFile(LOGIN_FILE_PATH);
     private static final List<String> PASSWORDS = loadFromFile(PASSWORD_FILE_PATH);
     private String loginUrlStr;
 
-    private static List<String> loadFromFile(String filePath) {
+    static List<String> loadFromFile(String filePath) {
         List<String> data = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {

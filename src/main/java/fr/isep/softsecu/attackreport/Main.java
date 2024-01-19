@@ -18,11 +18,13 @@ public class Main {
 
         new SQLInjectionAttack(), //Require FindLoginPageAttack
         new XSSAttack(),
+        new XEEAttack(),
 
         //Now attacks taking long time
         new PortScanAttack(),
         new DictionaryAttack(), //Require FindLoginPageAttack
         new DOSAttack(),
+        new BruteForceAttack(), //Require FindLoginPageAttack
     };
 
     public static void main(String[] args) {
