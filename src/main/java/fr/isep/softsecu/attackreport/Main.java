@@ -15,14 +15,14 @@ public class Main {
 
     private static final Attack[] ATTACKS = new Attack[] {
         new FindLoginPageAttack(),
-            
+
+        new SQLInjectionAttack(), //Require FindLoginPageAttack
         new XSSAttack(),
 
         //Now attacks taking long time
         new PortScanAttack(),
         new DictionaryAttack(), //Require FindLoginPageAttack
         new DOSAttack(),
-        new SQLInjectionAttack(), //Require FindLoginPageAttack
     };
 
     public static void main(String[] args) {
