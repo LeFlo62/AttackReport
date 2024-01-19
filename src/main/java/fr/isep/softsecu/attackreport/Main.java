@@ -22,8 +22,8 @@ public class Main {
 
         //Now attacks taking long time
         new PortScanAttack(),
-        new RainbowTableAttack(), //Require FindLoginPageAttack
-        new DOSAttack()
+        new DictionaryAttack(), //Require FindLoginPageAttack
+        new DOSAttack(),
     };
 
     public static void main(String[] args) {
@@ -80,6 +80,7 @@ public class Main {
             e.printStackTrace();
         }
         report.print();
+        System.out.println("All attacks finished.");
     }
 
     private static String askAddress() {
